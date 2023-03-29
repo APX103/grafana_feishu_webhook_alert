@@ -60,12 +60,8 @@ const router = require('koa-router')()
 
 // plain 
 router.post('/', async (ctx, next) => {
-
-  // 可以通过校验receiver来实现是否执行
-  //if(typeof(ctx.request.body.receiver) !== 'undefined' && ctx.request.body.receiver === 'feishu report'){
-
   const body = ctx.request.body
-  const res = await axios.post('https://open.feishu.cn/open-apis/bot/v2/hook/83b952f3-8d23-4322-adcf-a0e671fbceef', {
+  await axios.post('https://open.feishu.cn/open-apis/bot/v2/hook/83b952f3-8d23-4322-adcf-a0e671fbceef', {
     "msg_type": "interactive",
     "card": {
         "config": {
@@ -90,7 +86,6 @@ router.post('/', async (ctx, next) => {
        }
       }
     )
-  // }
 })
 
 
