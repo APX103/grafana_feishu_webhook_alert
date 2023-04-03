@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        title Koa2 SQLite Pug Example
+        link(rel='stylesheet', href='/main.css')
+    body
+        h1 Items
+
+        table
+            thead
+                tr
+                    th Name
+                    th Description
+                    th
+            tbody
+                each item in items
+                    tr
+                        td #{item.name}
+                        td #{item.description}
+                        td
+                            form(action=`/items/${item.id}`, method='POST')
+                                input(type='hidden', name='_method', value='DELETE')
+                                button(type='submit') Delete
+                            form(action=`/items/${item.id}`, method='GET')
+                                button(type='submit') Edit
+
+        h2 Add Item
+
+        form(action='/items', method='POST')
+            div
+                label(for='name') Name:
+                input(type='text', name='name', required)
+            div
+                label(for='description') Description:
+                input(type='text', name='description', required)
+            button(type='submit') Add Item

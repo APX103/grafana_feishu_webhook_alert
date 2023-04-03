@@ -1,7 +1,7 @@
 // const { isProd } = require('../utils/env')
 
 let SQLITE_CONFIG = {
-    path: './map.sqlite'
+    storage: './map.sqlite'
 }
 
 // let REDIS_CONF = {
