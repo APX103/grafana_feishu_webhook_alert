@@ -1,10 +1,10 @@
 doctype html
 html
     head
-        title Koa2 SQLite Pug Example
-        link(rel='stylesheet', href='/main.css')
+        title Webhook Maps GFWA
+        link(rel='stylesheet', href='/stylesheets/main.css')
     body
-        h1 Items
+        h1 Webhook Maps
 
         table
             thead
@@ -15,22 +15,35 @@ html
             tbody
                 each item in items
                     tr
-                        td #{item.name}
-                        td #{item.description}
+                        //td #{item.receiver}
+                        //td #{item.webhook}
+                        //td
+                        //    form(action=`/delete`, method='POST')
+                        //        input(type='hidden', name='receiver', value=item.receiver)
+                        //        input(type='hidden', name='webhook', value=item.webhook)
+                        //        button(type='submit') Delete
+                        //    form(action=`/update`, method='GET')
+                        //        button(type='submit') Edit
+                        //form
+                        td #{item.receiver}
+                            //input(type='hidden', name='receiver', value=item.receiver)
+                        td #{item.webhook}
+                            //input(name='webhook', value=item.webhook)
                         td
-                            form(action=`/items/${item.id}`, method='POST')
-                                input(type='hidden', name='_method', value='DELETE')
+                            //form(action=`/update`, method='POST')
+                            //    button(type='submit') Edit
+                            form(action=`/delete`, method='POST')
+                                input(type='hidden', name='receiver', value=item.receiver)
+                                input(type='hidden', name='webhook', value=item.webhook)
                                 button(type='submit') Delete
-                            form(action=`/items/${item.id}`, method='GET')
-                                button(type='submit') Edit
 
         h2 Add Item
 
-        form(action='/items', method='POST')
+        form(action='/add', method='POST')
             div
-                label(for='name') Name:
-                input(type='text', name='name', required)
+                label Receiver:
+                input(type='text', name='receiver', required)
             div
-                label(for='description') Description:
-                input(type='text', name='description', required)
-            button(type='submit') Add Item
+                label Webhook:
+                input(type='text', name='webhook', required)
+            button(type='submit') Add Map

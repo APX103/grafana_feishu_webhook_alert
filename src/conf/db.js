@@ -1,7 +1,7 @@
 // const { isProd } = require('../utils/env')
 
 let SQLITE_CONFIG = {
-    storage: './map.sqlite'
+    storage: '/home/PJLAB/lijialun/work/grafana_feishu_webhook_alert/src/db/map.sqlite'
 }
 
 // let REDIS_CONF = {
