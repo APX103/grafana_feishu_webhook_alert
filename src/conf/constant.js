@@ -1,0 +1,4 @@
+module.exports = {
+    JWT_PRIVATE_KEY: 'FUCK_YOUR_ASSHOLE_GAY_MAN',
+    JWT_EXPIRE_TIME: 60 * 30
+}
